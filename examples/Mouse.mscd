@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mosaicode>
+ <version value="0.0.1"/>
+ <zoom value="1.0"/>
+ <language value="c"/>
+ <blocks>
+  <block collapsed="False" id="1" type="mosaicode_lib_c_opengl.extensions.blocks.Math.printfloat">
+   <position x="450.0" y="200.0"/>
+  </block>
+  <block collapsed="False" id="2" type="mosaicode_lib_c_opengl.extensions.blocks.Math.addfloat">
+   <position x="250.0" y="140.0"/>
+  </block>
+  <block collapsed="False" id="4" type="mosaicode_lib_c_opengl.extensions.blocks.IO.mousemove">
+   <position x="20.0" y="140.0"/>
+  </block>
+  <block collapsed="False" id="5" type="mosaicode_lib_c_opengl.extensions.blocks.Math.printfloat">
+   <position x="250.0" y="50.0"/>
+  </block>
+  <block collapsed="False" id="6" type="mosaicode_lib_c_opengl.extensions.blocks.Math.printfloat">
+   <position x="250.0" y="230.0"/>
+  </block>
+ </blocks>
+ <connections>
+  <connection from_block="2" from_out="2" to_block="1" to_in="0"/>
+  <connection from_block="4" from_out="0" to_block="2" to_in="0"/>
+  <connection from_block="4" from_out="1" to_block="2" to_in="1"/>
+  <connection from_block="4" from_out="0" to_block="5" to_in="0"/>
+  <connection from_block="4" from_out="1" to_block="6" to_in="0"/>
+ </connections>
+ <comments/>
+</mosaicode>

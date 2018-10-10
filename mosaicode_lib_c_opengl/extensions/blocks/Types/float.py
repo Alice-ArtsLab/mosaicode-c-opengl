@@ -30,10 +30,22 @@ class Float(BlockModel):
                             "upper": 1.0,
                             "step": 0.01,
                             "value": 0.5,
-			    "page_inc": 0.1,
+                            "page_inc": 0.1,
                             "page_size": 0.1,
                             }
                            ]
+
+        self.codes["global"]= """
+std::vector<void (*)(float)> $port[value]$;
+"""
+
         self.codes["declaration"] = """
         float value$id$ = $prop[size]$;
+"""
+
+        self.codes["execution"] = """
+   for(auto n : $port[value]$){
+       n(value$id$);
+   }
+
 """

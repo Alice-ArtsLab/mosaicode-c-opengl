@@ -19,7 +19,7 @@ class CFile(CodeTemplate):
         self.language = "c"
         self.description = "A full template to generate opengl code"
         self.extension = ".c"
-        self.command = "gcc -Wall -g $dir_name$$filename$$extension$ -o $dir_name$$filename$ -lGL -lGLU -lglut -lm\n"
+        self.command = "g++ -Wall -g $dir_name$$filename$$extension$ -o $dir_name$$filename$ -lGL -lGLU -lglut -lm\n"
         self.command += "$dir_name$./$filename$"
         self.code_parts = ["global", "function", "call","idle","declaration", "execution"]
         self.code = r"""
@@ -30,6 +30,8 @@ class CFile(CodeTemplate):
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
+#include <iostream> // for cout
 #include <math.h>
 #define ESCAPE 27 //Valor em ASCII do Esc
 int window;
@@ -89,6 +91,7 @@ int main (int argc, char** argv){
     strcpy(window->title, "Main Page");
     //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     mosaicgraph_draw_window(window);
+    $connections$
     $single_code[execution]$
     glutDisplayFunc(display);
     glutIdleFunc(&idle);
