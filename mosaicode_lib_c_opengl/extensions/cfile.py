@@ -76,7 +76,7 @@ void display(){
   glMatrixMode(GL_MODELVIEW);
   glClear(GL_COLOR_BUFFER_BIT);         // Limpa o collor buffer
   glLoadIdentity();
-  $code[call, connection]$
+  $code[call]$
   glutSwapBuffers();
 }
 void idle(){
