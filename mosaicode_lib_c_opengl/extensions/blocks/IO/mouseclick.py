@@ -6,7 +6,7 @@ This module contains the FloatValue class.
 from mosaicode.GUI.fieldtypes import *
 from mosaicode.model.blockmodel import BlockModel
 
-class MouseMove(BlockModel):
+class MouseClick(BlockModel):
 
     # -------------------------------------------------------------------------
     def __init__(self):
@@ -15,7 +15,7 @@ class MouseMove(BlockModel):
         self.language = "c"
         self.framework = "opengl"
         self.help = "Not to declare"
-        self.label = "Mouse Move"
+        self.label = "Mouse Click"
         self.color = "250:50:50:100"
         self.group = "I/O"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
@@ -35,7 +35,7 @@ std::vector<void (*)(float)> $port[y]$; //mouse output
 """
 
         self.codes["function"] = """
-    void onMouseMove$id$(int button, int state, int x, int y){
+    void onMouseClick$id$(int button, int state, int x, int y){
     for(auto n : $port[x]$){
          n(x);
     }
@@ -49,6 +49,6 @@ std::vector<void (*)(float)> $port[y]$; //mouse output
 """
 
         self.codes["execution"] = """
-        glutMouseFunc(onMouseMove$id$);
+        glutMouseFunc(onMouseClick$id$);
 
 """

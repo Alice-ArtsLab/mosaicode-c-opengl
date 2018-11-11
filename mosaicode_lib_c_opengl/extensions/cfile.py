@@ -21,7 +21,7 @@ class CFile(CodeTemplate):
         self.extension = ".c"
         self.command = "g++ -Wall -g $dir_name$$filename$$extension$ -o $dir_name$$filename$ -lGL -lGLU -lglut -lm\n"
         self.command += "$dir_name$./$filename$"
-        self.code_parts = ["global", "function", "call","idle","declaration", "execution"]
+        self.code_parts = ["global", "function", "call","idle","declaration", "execution","keyboard"]
         self.code = r"""
 #include <GL/glut.h>    // Header File For The GLUT Library
 #include <GL/gl.h>  // Header File For The OpenGL32 Library
@@ -79,6 +79,14 @@ void display(){
   $code[call]$
   glutSwapBuffers();
 }
+void keyPressed(unsigned char key, int x, int y) {
+    usleep(100);
+    if (key == ESCAPE){ 
+      glutDestroyWindow(window); 
+      exit(0);                   
+    }
+    $code[keyboard]$
+}
 void idle(){
     $code[idle]$
     display();
@@ -95,6 +103,7 @@ int main (int argc, char** argv){
     $single_code[execution]$
     glutDisplayFunc(display);
     glutIdleFunc(&idle);
+    glutKeyboardFunc(&keyPressed);
     glutMainLoop();
 	return 0;
 }

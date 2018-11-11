@@ -82,10 +82,6 @@ class WindowProperties(BlockModel):
         window->width = $prop[width]$;
         window->height = $prop[height]$;
         strcpy(window->title, "$prop[title]$");
-        float background[3] = rgbToFloat("$prop[background]$");
-        window->red = background[0];
-        window->green = background[1]; 
-        window->blue = background[2] ;
 """
         self.codes["call"] = """
         glPolygonMode(GL_FRONT_AND_BACK, $prop[polygon]$);
