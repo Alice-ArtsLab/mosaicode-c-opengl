@@ -29,7 +29,11 @@ class Quadrilateral(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
                 "conn_type":"Input",
-                "name":"color"}
+                "name":"color"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"Scale",
+                "conn_type":"Input",
+                "name":"scale"}
             ]
 
         self.properties = [{"name": "x1",
@@ -113,6 +117,12 @@ class Quadrilateral(BlockModel):
                             "value": 1.0,
                             }
                            ]
+        self.codes["global"] = """
+        float scale_$id$ = 1.0;
+        void $port[scale]$(float value){
+            scale_$id$ = value;
+        }
+"""
         self.codes["function"] = """
         void mosaicgraph_draw_quadrilateral(float x1, float x2, float x3, float x4, float y1, float y2, float y3, float y4){
             glColor3f(0.5,0.5,0.5);
@@ -126,5 +136,8 @@ class Quadrilateral(BlockModel):
 
 """
         self.codes["call"] = """
+        glPushMatrix();
+        glScalef(scale_$id$,scale_$id$,0.0);
         mosaicgraph_draw_quadrilateral($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[x4]$,$prop[y1]$,$prop[y2]$,$prop[y3]$,$prop[y4]$);
+        glPopMatrix();
 """

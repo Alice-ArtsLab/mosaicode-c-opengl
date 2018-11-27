@@ -29,7 +29,11 @@ class Circle(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
                 "conn_type":"Input",
-                "name":"color"}
+                "name":"color"},
+                 {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"radius",
+                "conn_type":"Input",
+                "name":"radius"}
             ]
 
         self.properties = [{"name": "radius",
@@ -43,6 +47,12 @@ class Circle(BlockModel):
                             "value": 0.5
                             }
                            ]
+        self.codes["global"] = """
+        float radius_$id$ = $prop[radius]$;
+        void $port[radius]$(float value){
+            radius_$id$ = value;
+        }
+"""
         self.codes["function"] = """
         void mosaicgraph_draw_circle(float radius){
             glColor3f(0.8f,0.2f,0.0);
@@ -56,5 +66,5 @@ class Circle(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_circle($prop[radius]$);
+        mosaicgraph_draw_circle(radius_$id$);
 """

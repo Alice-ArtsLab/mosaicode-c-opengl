@@ -29,7 +29,11 @@ class Triangle(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
                 "conn_type":"Input",
-                "name":"color"}
+                "name":"color"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"Scale",
+                "conn_type":"Input",
+                "name":"scale"}
             ]
 
         self.properties = [{"name": "x1",
@@ -93,6 +97,13 @@ class Triangle(BlockModel):
                             "value": -1.0,
                             }
                            ]
+
+        self.codes["global"] = """
+        float scale_$id$ = 1.0;
+        void $port[scale]$(float value){
+            scale_$id$ = value;
+        }
+"""
         self.codes["function"] = """
 
         void mosaicgraph_draw_triangle(float x1, float x2, float x3, float y1, float y2, float y3){
@@ -106,5 +117,8 @@ class Triangle(BlockModel):
 
 """
         self.codes["call"] = """
+        glPushMatrix();
+        glScalef(scale_$id$,scale_$id$,0.0);
         mosaicgraph_draw_triangle($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[y1]$,$prop[y2]$,$prop[y3]$);
+        glPopMatrix();
 """

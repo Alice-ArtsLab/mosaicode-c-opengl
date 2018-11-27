@@ -29,7 +29,19 @@ class Elipse(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
                 "conn_type":"Input",
-                "name":"color"}
+                "name":"color"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"Radius",
+                "conn_type":"Input",
+                "name":"radius"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"FocusX",
+                "conn_type":"Input",
+                "name":"focusX"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"FocusY",
+                "conn_type":"Input",
+                "name":"focusY"}
             ]
 
         self.properties = [{"name": "radius",
@@ -63,6 +75,21 @@ class Elipse(BlockModel):
                             "value": 0.5,
                             }
                            ]
+
+        self.codes["global"] = """
+        float focusX_$id$ = $prop[focusX]$;
+        float focusY_$id$ = $prop[focusY]$;
+        float radius_$id$ = $prop[radius]$;
+        void $port[radius]$(float value){
+            radius_$id$ = value;
+        }
+        void $port[focusX]$(float value){
+            focusX_$id$ = value;
+        }
+        void $port[focusY]$(float value){
+            focusY_$id$ = value;
+        }
+"""
         self.codes["function"] = """
         void mosaicgraph_draw_elipse(float radius,float elipse_x,float elipse_y){
             glColor3f(0.8f,0.6f,0.0);
@@ -76,5 +103,5 @@ class Elipse(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_elipse($prop[radius]$,$prop[focusY]$,$prop[focusX]$);
+        mosaicgraph_draw_elipse(radius_$id$,focusX_$id$,focusY_$id$);
 """
