@@ -78,8 +78,14 @@ class Cone(BlockModel):
                             }
                            ]
         self.codes["global"] = """
-        float base$id$;
-        float height$id$;
+        float base_$id$ = $prop[base]$;
+        float height_$id$ = $prop[height]$;
+        void $port[base]$(float value){
+            base_$id$ = value;
+        }
+        void $port[height]$(float value){
+            height_$id$ = value;
+        }
 """
         self.codes["function"] = """
         void mosaicgraph_draw_cone(float base,float height, int slices, int stacks){
@@ -89,9 +95,5 @@ class Cone(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_cone(base$id$,height$id$,$prop[slices]$,$prop[stacks]$);
-"""
-        self.codes["declaration"] = """
-        base$id$ = $prop[base]$;
-        height$id$ = $prop[height]$;
+        mosaicgraph_draw_cone(base_$id$,height_$id$,$prop[slices]$,$prop[stacks]$);
 """

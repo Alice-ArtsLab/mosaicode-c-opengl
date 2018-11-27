@@ -49,7 +49,10 @@ class Teapot(BlockModel):
                            ]
 
         self.codes["global"] = """
-        float float$id$;
+        float float_$id$ = $prop[size]$;
+        void $port[float]$(float value){
+            float_$id$ = value;
+        }
 """
         self.codes["function"] = """
         void mosaicgraph_draw_teapot(float size){
@@ -59,8 +62,6 @@ class Teapot(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_teapot(float$id$);
+        mosaicgraph_draw_teapot(float_$id$);
 """
-        self.codes["declaration"] = """
-        float$id$ = $prop[size]$;
-"""
+

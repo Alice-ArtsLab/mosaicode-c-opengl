@@ -33,15 +33,7 @@ class Elipse(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                 "label":"Radius",
                 "conn_type":"Input",
-                "name":"radius"},
-                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
-                "label":"FocusX",
-                "conn_type":"Input",
-                "name":"focusX"},
-                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
-                "label":"FocusY",
-                "conn_type":"Input",
-                "name":"focusY"}
+                "name":"radius"}
             ]
 
         self.properties = [{"name": "radius",
@@ -77,17 +69,9 @@ class Elipse(BlockModel):
                            ]
 
         self.codes["global"] = """
-        float focusX_$id$ = $prop[focusX]$;
-        float focusY_$id$ = $prop[focusY]$;
         float radius_$id$ = $prop[radius]$;
         void $port[radius]$(float value){
             radius_$id$ = value;
-        }
-        void $port[focusX]$(float value){
-            focusX_$id$ = value;
-        }
-        void $port[focusY]$(float value){
-            focusY_$id$ = value;
         }
 """
         self.codes["function"] = """
@@ -103,5 +87,5 @@ class Elipse(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_elipse(radius_$id$,focusX_$id$,focusY_$id$);
+        mosaicgraph_draw_elipse(radius_$id$,$prop[focusX]$,$prop[focusY]$);
 """

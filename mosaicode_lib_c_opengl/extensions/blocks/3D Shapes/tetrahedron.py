@@ -29,8 +29,29 @@ class Tetrahedron(BlockModel):
                 {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
                 "conn_type":"Input",
-                "name":"color"}
+                "name":"color"},
+                {"type":"mosaicode_lib_c_opengl.extensions.ports.float",
+                "label":"Float",
+                "conn_type":"Input",
+                "name":"float"}
             ]
+        self.properties = [{"name": "size",
+                            "label": "size",
+                            "type": MOSAICODE_FLOAT,
+                            "lower": 0.01,
+                            "upper": 2.0,
+                            "step": 0.01,
+                            "page_inc": 0.01,
+                            "page_size": 0.01,
+                            "value": 0.1,
+                            }
+                           ]
+        self.codes["global"] = """
+        float float_$id$ = $prop[size]$;
+        void $port[float]$(float value){
+            float_$id$ = value;
+        }
+"""
 
         self.codes["function"] = """
         void mosaicgraph_draw_tetrahedron(){
@@ -40,5 +61,8 @@ class Tetrahedron(BlockModel):
 
 """
         self.codes["call"] = """
+        glPushMatrix();
+        glScalef(float_$id$,float_$id$,float_$id$);
         mosaicgraph_draw_tetrahedron();
+        glPopMatrix();
 """

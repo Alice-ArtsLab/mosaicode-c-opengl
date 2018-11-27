@@ -48,7 +48,10 @@ class Cube(BlockModel):
                             }
                            ]
         self.codes["global"] = """
-        float float$id$;
+        float float_$id$ = $prop[size]$;
+        void $port[float]$(float value){
+            float_$id$ = value;
+        }
 """
         self.codes["function"] = """
         void mosaicgraph_draw_cube(float size){
@@ -58,8 +61,5 @@ class Cube(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_cube(float$id$);
-"""
-        self.codes["declaration"] = """
-        float$id$ = $prop[size]$;
+        mosaicgraph_draw_cube(float_$id$);
 """

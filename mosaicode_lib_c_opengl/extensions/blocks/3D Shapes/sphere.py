@@ -64,7 +64,10 @@ class Sphere(BlockModel):
                             }
                            ]
         self.codes["global"] = """
-        float float$id$;
+        float float_$id$ = $prop[radius]$;
+        void $port[float]$(float value){
+            float_$id$ = value;
+        }
 """
         self.codes["function"] = """
         void mosaicgraph_draw_sphere(float radius, int slices, int stacks){
@@ -74,8 +77,6 @@ class Sphere(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_sphere(float$id$,$prop[slices]$,$prop[stacks]$);
+        mosaicgraph_draw_sphere(float_$id$,$prop[slices]$,$prop[stacks]$);
 """
-        self.codes["declaration"] = """
-        float$id$ = $prop[radius]$;
-"""
+

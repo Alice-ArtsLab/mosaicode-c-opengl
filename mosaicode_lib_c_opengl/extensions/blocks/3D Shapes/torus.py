@@ -40,7 +40,7 @@ class Torus(BlockModel):
                 "name":"outerradius"}
             ]
 
-        self.properties = [{"name": "innerRadius",
+        self.properties = [{"name": "innerradius",
                             "label": "innerRadius",
                             "type": MOSAICODE_FLOAT,
                             "lower": 0.01,
@@ -50,7 +50,7 @@ class Torus(BlockModel):
                             "page_size": 0.01,
                             "value": 0.1,
                             },
-                            {"name": "outerRadius",
+                            {"name": "outerradius",
                             "label": "outerRadius",
                             "type": MOSAICODE_FLOAT,
                             "lower": 0.0,
@@ -79,8 +79,14 @@ class Torus(BlockModel):
                            ]
 
         self.codes["global"] = """
-        float innerradius$id$;
-        float outerradius$id$;
+        float innerradius_$id$ = $prop[innerradius]$;;
+        float outerradius_$id$ = $prop[outerradius]$;
+        void $port[innerradius]$(float value){
+            innerradius_$id$ = value;
+        }
+        void $port[outerradius]$(float value){
+            outerradius_$id$ = value;
+        }
 """
         self.codes["function"] = """
         void mosaicgraph_draw_torus(float innerRadius,float outerRadius, int nsides, int rings){
@@ -90,9 +96,6 @@ class Torus(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_torus(innerradius$id$,outerradius$id$,$prop[nsides]$,$prop[rings]$);
+        mosaicgraph_draw_torus(innerradius_$id$,outerradius_$id$,$prop[nsides]$,$prop[rings]$);
 """
-        self.codes["declaration"] = """
-        innerradius$id$ = $prop[innerRadius]$;
-        outerradius$id$ = $prop[outerRadius]$;
-"""
+
