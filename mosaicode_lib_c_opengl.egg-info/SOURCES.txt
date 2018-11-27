@@ -4,6 +4,7 @@ setup.py
 examples/Circle.mscd
 examples/FLoat Math.mscd
 examples/Mouse.mscd
+examples/increment.mscd
 mosaicode_lib_c_opengl/__init__.py
 mosaicode_lib_c_opengl.egg-info/PKG-INFO
 mosaicode_lib_c_opengl.egg-info/SOURCES.txt
@@ -33,7 +34,12 @@ mosaicode_lib_c_opengl/extensions/blocks/IO/keyboard.py
 mosaicode_lib_c_opengl/extensions/blocks/IO/mouseclick.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/addfloat.py
+mosaicode_lib_c_opengl/extensions/blocks/Math/decrement.py
+mosaicode_lib_c_opengl/extensions/blocks/Math/divfloat.py
+mosaicode_lib_c_opengl/extensions/blocks/Math/increment.py
+mosaicode_lib_c_opengl/extensions/blocks/Math/mulfloat.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/printfloat.py
+mosaicode_lib_c_opengl/extensions/blocks/Math/subfloat.py
 mosaicode_lib_c_opengl/extensions/blocks/Operations/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/Operations/pop.py
 mosaicode_lib_c_opengl/extensions/blocks/Operations/push.py

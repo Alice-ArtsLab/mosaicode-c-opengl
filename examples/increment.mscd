@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mosaicode>
+ <version value="0.0.1"/>
+ <zoom value="1.0"/>
+ <language value="c"/>
+ <blocks>
+  <block collapsed="False" id="1" type="mosaicode_lib_c_opengl.extensions.blocks.3D Shapes.cube">
+   <position x="480.0" y="220.0"/>
+   <property key="size" value="0.1"/>
+  </block>
+  <block collapsed="False" id="2" type="mosaicode_lib_c_opengl.extensions.blocks.Math.increment">
+   <position x="260.0" y="180.0"/>
+  </block>
+  <block collapsed="False" id="3" type="mosaicode_lib_c_opengl.extensions.blocks.IO.keyboard">
+   <position x="110.0" y="150.0"/>
+   <property key="caractere" value="a"/>
+  </block>
+ </blocks>
+ <connections>
+  <connection from_block="2" from_out="1" to_block="1" to_in="3"/>
+  <connection from_block="3" from_out="0" to_block="2" to_in="0"/>
+ </connections>
+ <comments/>
+</mosaicode>
