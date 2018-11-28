@@ -9,16 +9,29 @@
    <property key="size" value="0.1"/>
   </block>
   <block collapsed="False" id="2" type="mosaicode_lib_c_opengl.extensions.blocks.Math.increment">
-   <position x="260.0" y="180.0"/>
+   <position x="310.0" y="160.0"/>
   </block>
   <block collapsed="False" id="3" type="mosaicode_lib_c_opengl.extensions.blocks.IO.keyboard">
-   <position x="110.0" y="150.0"/>
+   <position x="110.0" y="220.0"/>
    <property key="caractere" value="a"/>
+  </block>
+  <block collapsed="False" id="5" type="mosaicode_lib_c_opengl.extensions.blocks.IO.mouseclick">
+   <position x="30.0" y="90.0"/>
+  </block>
+  <block collapsed="False" id="6" type="mosaicode_lib_c_opengl.extensions.blocks.Types.float">
+   <position x="30.0" y="20.0"/>
+   <property key="size" value="0.5"/>
+  </block>
+  <block collapsed="False" id="7" type="mosaicode_lib_c_opengl.extensions.blocks.Math.divfloat">
+   <position x="180.0" y="70.0"/>
   </block>
  </blocks>
  <connections>
-  <connection from_block="2" from_out="1" to_block="1" to_in="3"/>
-  <connection from_block="3" from_out="0" to_block="2" to_in="0"/>
+  <connection from_block="2" from_out="2" to_block="1" to_in="3"/>
+  <connection from_block="3" from_out="0" to_block="2" to_in="1"/>
+  <connection from_block="6" from_out="0" to_block="7" to_in="0"/>
+  <connection from_block="5" from_out="0" to_block="7" to_in="1"/>
+  <connection from_block="7" from_out="2" to_block="2" to_in="0"/>
  </connections>
  <comments/>
 </mosaicode>

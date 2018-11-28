@@ -32,7 +32,17 @@ class Increment(BlockModel):
                     "name":"result"}
             ]
 
-        self.properties = []
+        self.properties = [{"name": "step",
+                            "label": "step",
+                            "type": MOSAICODE_FLOAT,
+                            "lower": 0.01,
+                            "upper": 1.0,
+                            "step": 0.01,
+                            "value": 0.1,
+                            "page_inc": 0.1,
+                            "page_size": 0.1,
+                            }
+                           ]
         self.codes["global"] = """
 std::vector<void (*)(float)> $port[result]$;
 float trigger_$id$ = 0;
@@ -46,17 +56,22 @@ void $port[trigger]$(float value){
          value_$id$ = input_$id$;
      }
      if(trigger_$id$ =! 0){
-        value_$id$ = value_$id$ + 0.001;
-        result = value_$id$;
-    }else{
-        result = input_$id$;
-    }
+        value_$id$ = value_$id$ + $prop[step]$;
+        
+    }result = value_$id$;
      for(auto n : $port[result]$){
         n(result);
    }
 }
 
 void $port[input]$(float value){
-     input_$id$ = value;
+    if (value != input_$id$){
+        input_$id$ = value;
+        value_$id$ = 0;
+        float result = input_$id$;
+        for(auto n : $port[result]$){
+            n(result);
+        }
+    }
 }
 """
