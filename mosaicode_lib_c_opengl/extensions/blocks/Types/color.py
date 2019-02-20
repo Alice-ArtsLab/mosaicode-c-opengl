@@ -16,24 +16,50 @@ class Color(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Color"
-        self.color = "200:200:150:150"
+        self.color = "150:150:250:150"
         self.group = "Types"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.color",
-                    "label":"Color",
-                    "conn_type":"Output",
-                    "name":"color"}
+                "label":"Color",
+                "conn_type":"Output",
+                "name":"color"}
             ]
-#        self.properties = [{"name": "size",
-#                            "label": "size",
-#                            "type": MOSAICODE_FLOAT,
-#                            "lower": -1.0,
-#                            "upper": 1.0,
-#                            "step": 0.01,
-#                            "value": 0.5,#
-#			    "page_inc": 0.1,
-#                            "page_size": 0.1,
-#                            }
-#                           ]
-#        self.codes["declaration"] = """
-#        float value$id$ = $prop[size]$;
-#"""
+
+        self.properties = [{"name": "color",
+                            "label": "Color",
+                            "value":"#FF0000",
+                            "format":"FF0000",
+                            "type": MOSAICODE_COLOR
+			                }]
+
+        self.codes["function"] = """
+void convert_text_to_color(const char * rgbColor, float * output){
+    if (strlen(rgbColor) < 7 || rgbColor[0] != '#'){
+        output[0] = 0.0;
+        output[1] = 0.0;
+        output[2] = 0.0;
+        }
+
+    char * r = (char*)malloc(2*sizeof(char)), * g= (char*)malloc(2*sizeof(char)), *b= (char*)malloc(2*sizeof(char));
+    r[0] = rgbColor[1];
+    r[1] = rgbColor[2];
+    g[0] = rgbColor[3];
+    g[1] = rgbColor[4];
+    b[0] = rgbColor[5];
+    b[1] = rgbColor[6];
+
+    float ri=0.0, gi =0.0, bi =0.0;
+    ri = (float) strtol(r, NULL, 16);
+    gi = (float) strtol(g, NULL, 16);
+    bi = (float) strtol(b, NULL, 16);
+
+    output[0] = ri / 255.0;
+    output[1] = gi / 255.0;
+    output[2] = bi / 255.0;
+}
+"""
+
+        self.codes["declaration"] = """
+        // Color Baby!
+		float $port[color]$[3];
+        convert_text_to_color("$prop[color]$", $port[color]$);
+"""

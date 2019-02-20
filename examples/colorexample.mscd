@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mosaicode>
+ <version value="0.0.1"/>
+ <zoom value="1.0"/>
+ <language value="c"/>
+ <blocks>
+  <block collapsed="False" id="1" type="mosaicode_lib_c_opengl.extensions.blocks.2D Shapes.quadrilateral">
+   <position x="360.0" y="120.0"/>
+   <property key="x1" value="0.0"/>
+   <property key="y1" value="1.0"/>
+   <property key="x2" value="0.0"/>
+   <property key="y2" value="0.0"/>
+   <property key="x3" value="1.0"/>
+   <property key="y3" value="0.0"/>
+   <property key="x4" value="1.0"/>
+   <property key="y4" value="1.0"/>
+  </block>
+  <block collapsed="False" id="2" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
+   <position x="190.0" y="120.0"/>
+   <property key="color" value="#FF0000"/>
+  </block>
+ </blocks>
+ <connections>
+  <connection from_block="2" from_out="0" to_block="1" to_in="2"/>
+ </connections>
+ <comments/>
+</mosaicode>

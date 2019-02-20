@@ -1,5 +1,6 @@
 COPYING
 MANIFEST.in
+README.md
 setup.py
 examples/increment.mscd
 mosaicode_lib_c_opengl/__init__.py

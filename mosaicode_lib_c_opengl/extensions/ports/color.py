@@ -8,5 +8,5 @@ class Float(Port):
         self.hint = "COLOR"
         self.color = "#2c6300"
         self.multiple = False
-        self.code = "memcpy($output$, $input$,  sizeof($input$));\n"
+        self.code = "$input$ = $output$;"
         self.var_name = "$block[label]$_$block[id]$_$port[name]$"	

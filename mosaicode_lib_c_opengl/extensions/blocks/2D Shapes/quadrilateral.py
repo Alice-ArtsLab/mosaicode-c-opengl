@@ -119,13 +119,14 @@ class Quadrilateral(BlockModel):
                            ]
         self.codes["global"] = """
         float scale_$id$ = 1.0;
+        float * $port[color]$;
         void $port[scale]$(float value){
             scale_$id$ = value;
         }
 """
         self.codes["function"] = """
-        void mosaicgraph_draw_quadrilateral(float x1, float x2, float x3, float x4, float y1, float y2, float y3, float y4){
-            glColor3f(0.5,0.5,0.5);
+        void mosaicgraph_draw_quadrilateral(float x1, float x2, float x3, float x4, float y1, float y2, float y3, float y4,float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glBegin(GL_POLYGON);
                 glVertex2f(x1,y1);
                 glVertex2f(x2,y2);
@@ -138,6 +139,6 @@ class Quadrilateral(BlockModel):
         self.codes["call"] = """
         glPushMatrix();
         glScalef(scale_$id$,scale_$id$,0.0);
-        mosaicgraph_draw_quadrilateral($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[x4]$,$prop[y1]$,$prop[y2]$,$prop[y3]$,$prop[y4]$);
+        mosaicgraph_draw_quadrilateral($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[x4]$,$prop[y1]$,$prop[y2]$,$prop[y3]$,$prop[y4]$,$port[color]$);
         glPopMatrix();
 """
