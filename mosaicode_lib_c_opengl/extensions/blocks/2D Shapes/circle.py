@@ -49,13 +49,14 @@ class Circle(BlockModel):
                            ]
         self.codes["global"] = """
         float radius_$id$ = $prop[radius]$;
+        float * $port[color]$;
         void $port[radius]$(float value){
             radius_$id$ = value;
         }
 """
         self.codes["function"] = """
-        void mosaicgraph_draw_circle(float radius){
-            glColor3f(0.8f,0.2f,0.0);
+        void mosaicgraph_draw_circle(float radius,float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glBegin(GL_POLYGON);
                 for (int i=0; i < 360; i++){
                     float degInRad = i*3.14159/180;
@@ -66,5 +67,5 @@ class Circle(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_circle(radius_$id$);
+        mosaicgraph_draw_circle(radius_$id$,$port[color]$);
 """

@@ -70,13 +70,14 @@ class Elipse(BlockModel):
 
         self.codes["global"] = """
         float radius_$id$ = $prop[radius]$;
+        float * $port[color]$;
         void $port[radius]$(float value){
             radius_$id$ = value;
         }
 """
         self.codes["function"] = """
-        void mosaicgraph_draw_elipse(float radius,float elipse_x,float elipse_y){
-            glColor3f(0.8f,0.6f,0.0);
+        void mosaicgraph_draw_elipse(float radius,float elipse_x,float elipse_y, float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glBegin(GL_POLYGON);
             for (int i=0; i < 360; i++){
                     float degInRad = i*3.14159/180;
@@ -87,5 +88,5 @@ class Elipse(BlockModel):
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_elipse(radius_$id$,$prop[focusX]$,$prop[focusY]$);
+        mosaicgraph_draw_elipse(radius_$id$,$prop[focusX]$,$prop[focusY]$,$port[color]$);
 """

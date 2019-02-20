@@ -2,6 +2,7 @@ COPYING
 MANIFEST.in
 README.md
 setup.py
+examples/colorexample.mscd
 examples/increment.mscd
 mosaicode_lib_c_opengl/__init__.py
 mosaicode_lib_c_opengl.egg-info/PKG-INFO

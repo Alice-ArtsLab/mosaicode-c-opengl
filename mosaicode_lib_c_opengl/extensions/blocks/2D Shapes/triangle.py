@@ -100,14 +100,15 @@ class Triangle(BlockModel):
 
         self.codes["global"] = """
         float scale_$id$ = 1.0;
+        float * $port[color]$;
         void $port[scale]$(float value){
             scale_$id$ = value;
         }
 """
         self.codes["function"] = """
 
-        void mosaicgraph_draw_triangle(float x1, float x2, float x3, float y1, float y2, float y3){
-            glColor3f(0.5,0.5,0.5);
+        void mosaicgraph_draw_triangle(float x1, float x2, float x3, float y1, float y2, float y3, float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glBegin(GL_POLYGON);
                 glVertex2f(x1,y1);
                 glVertex2f(x2,y2);
@@ -119,6 +120,6 @@ class Triangle(BlockModel):
         self.codes["call"] = """
         glPushMatrix();
         glScalef(scale_$id$,scale_$id$,0.0);
-        mosaicgraph_draw_triangle($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[y1]$,$prop[y2]$,$prop[y3]$);
+        mosaicgraph_draw_triangle($prop[x1]$,$prop[x2]$,$prop[x3]$,$prop[y1]$,$prop[y2]$,$prop[y3]$,$port[color]$);
         glPopMatrix();
 """
