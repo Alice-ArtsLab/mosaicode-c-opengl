@@ -49,7 +49,7 @@ class Circle(BlockModel):
                            ]
         self.codes["global"] = """
         float radius_$id$ = $prop[radius]$;
-        float * $port[color]$;
+        float * $port[color]$ ;
         void $port[radius]$(float value){
             radius_$id$ = value;
         }
@@ -65,6 +65,12 @@ class Circle(BlockModel):
             glEnd();
         }
 
+"""
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
 """
         self.codes["call"] = """
         mosaicgraph_draw_circle(radius_$id$,$port[color]$);

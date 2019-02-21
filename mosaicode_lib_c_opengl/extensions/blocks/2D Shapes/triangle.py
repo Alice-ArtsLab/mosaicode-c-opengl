@@ -117,6 +117,12 @@ class Triangle(BlockModel):
         }
 
 """
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
         self.codes["call"] = """
         glPushMatrix();
         glScalef(scale_$id$,scale_$id$,0.0);
