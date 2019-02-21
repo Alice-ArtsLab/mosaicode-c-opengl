@@ -79,7 +79,8 @@ class Torus(BlockModel):
                            ]
 
         self.codes["global"] = """
-        float innerradius_$id$ = $prop[innerradius]$;;
+        float innerradius_$id$ = $prop[innerradius]$;
+        float * $port[color]$;
         float outerradius_$id$ = $prop[outerradius]$;
         void $port[innerradius]$(float value){
             innerradius_$id$ = value;
@@ -88,14 +89,22 @@ class Torus(BlockModel):
             outerradius_$id$ = value;
         }
 """
+
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
+
         self.codes["function"] = """
-        void mosaicgraph_draw_torus(float innerRadius,float outerRadius, int nsides, int rings){
-            glColor3f(0.8f,0.2f,0.0);
+        void mosaicgraph_draw_torus(float innerRadius,float outerRadius, int nsides, int rings,float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidTorus(innerRadius, outerRadius, nsides, rings);
         }
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_torus(innerradius_$id$,outerradius_$id$,$prop[nsides]$,$prop[rings]$);
+        mosaicgraph_draw_torus(innerradius_$id$,outerradius_$id$,$prop[nsides]$,$prop[rings]$,$port[color]$);
 """
 

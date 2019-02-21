@@ -48,14 +48,22 @@ class Tetrahedron(BlockModel):
                            ]
         self.codes["global"] = """
         float float_$id$ = $prop[size]$;
+        float * $port[color]$;
         void $port[float]$(float value){
             float_$id$ = value;
         }
 """
 
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
+
         self.codes["function"] = """
-        void mosaicgraph_draw_tetrahedron(){
-            glColor3f(0.8f,0.2f,0.5f);
+        void mosaicgraph_draw_tetrahedron(float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidTetrahedron();
         }
 
@@ -63,6 +71,6 @@ class Tetrahedron(BlockModel):
         self.codes["call"] = """
         glPushMatrix();
         glScalef(float_$id$,float_$id$,float_$id$);
-        mosaicgraph_draw_tetrahedron();
+        mosaicgraph_draw_tetrahedron($port[color]$);
         glPopMatrix();
 """

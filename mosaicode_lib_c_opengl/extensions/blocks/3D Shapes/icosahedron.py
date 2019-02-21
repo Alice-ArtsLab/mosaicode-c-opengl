@@ -48,21 +48,30 @@ class Icosahedron(BlockModel):
                            ]
         self.codes["global"] = """
         float float_$id$ = $prop[size]$;
+        float * $port[color]$;
         void $port[float]$(float value){
             float_$id$ = value;
         }
 """
 
         self.codes["function"] = """
-        void mosaicgraph_draw_icosahedron(){
-            glColor3f(0.8f,0.8f,0.0);
+        void mosaicgraph_draw_icosahedron(float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidIcosahedron();
         }
 
 """
+
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
+
         self.codes["call"] = """
         glPushMatrix();
         glScalef(float_$id$,float_$id$,float_$id$);
-        mosaicgraph_draw_icosahedron();
+        mosaicgraph_draw_icosahedron($port[color]$);
         glPopMatrix();
 """

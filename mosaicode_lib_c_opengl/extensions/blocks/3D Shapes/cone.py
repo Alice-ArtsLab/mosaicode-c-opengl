@@ -79,6 +79,7 @@ class Cone(BlockModel):
                            ]
         self.codes["global"] = """
         float base_$id$ = $prop[base]$;
+        float * $port[color]$;
         float height_$id$ = $prop[height]$;
         void $port[base]$(float value){
             base_$id$ = value;
@@ -87,13 +88,19 @@ class Cone(BlockModel):
             height_$id$ = value;
         }
 """
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
         self.codes["function"] = """
-        void mosaicgraph_draw_cone(float base,float height, int slices, int stacks){
-            glColor3f(0.8f,0.2f,0.0);
+        void mosaicgraph_draw_cone(float base,float height, int slices, int stacks, float *rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidCone(base,height,slices,stacks);
         }
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_cone(base_$id$,height_$id$,$prop[slices]$,$prop[stacks]$);
+        mosaicgraph_draw_cone(base_$id$,height_$id$,$prop[slices]$,$prop[stacks]$,$port[color]$);
 """

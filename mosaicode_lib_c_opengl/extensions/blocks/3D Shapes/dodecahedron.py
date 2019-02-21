@@ -48,14 +48,22 @@ class Dodecahedron(BlockModel):
                            ]
         self.codes["global"] = """
         float float_$id$ = $prop[size]$;
+        float * $port[color]$;
         void $port[float]$(float value){
             float_$id$ = value;
         }
 """
 
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
+
         self.codes["function"] = """
-        void mosaicgraph_draw_dodecahedron(){
-            glColor3f(0.2f,0.2f,0.2);
+        void mosaicgraph_draw_dodecahedron(float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidDodecahedron();
         }
 
@@ -63,6 +71,6 @@ class Dodecahedron(BlockModel):
         self.codes["call"] = """
         glPushMatrix();
         glScalef(float_$id$,float_$id$,float_$id$);
-        mosaicgraph_draw_dodecahedron();
+        mosaicgraph_draw_dodecahedron($port[color]$);
         glPopMatrix();
 """

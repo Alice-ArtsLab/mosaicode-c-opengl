@@ -47,19 +47,29 @@ class Cube(BlockModel):
                             "value": 0.1,
                             }
                            ]
+        
         self.codes["global"] = """
         float float_$id$ = $prop[size]$;
+        float * $port[color]$;
         void $port[float]$(float value){
             float_$id$ = value;
         }
 """
+
+        self.codes["declaration"] = """
+        $port[color]$ = (float*)malloc (3 * sizeof (float));
+        $port[color]$[0] = 1.0;
+        $port[color]$[1] = 0.5;
+        $port[color]$[2] = 0.0;
+"""
+
         self.codes["function"] = """
-        void mosaicgraph_draw_cube(float size){
-            glColor3f(0.8f,0.2f,0.0);
+        void mosaicgraph_draw_cube(float size, float * rgb){
+            glColor3f(rgb[0],rgb[1],rgb[2]);
             glutSolidCube(size);
         }
 
 """
         self.codes["call"] = """
-        mosaicgraph_draw_cube(float_$id$);
+        mosaicgraph_draw_cube(float_$id$,$port[color]$);
 """
