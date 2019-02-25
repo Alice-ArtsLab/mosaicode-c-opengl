@@ -21,18 +21,12 @@ class PrintFloat(BlockModel):
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",
                     "conn_type":"Input",
-                    "name":"float"},
-                    {"type":"mosaicode_lib_c_opengl.extensions.ports.color",
-                    "label":"Color",
-                    "conn_type":"Input",
-                    "name":"color"}
+                    "name":"float"}
             ]
 
         self.properties = []
         self.codes["global"] = """
-void $port[float]$(float value){
-    std::cout << value << std::endl ;
-}
-void $port[color]$(char * value){
-    std::cout << value << std::endl ;
-}"""
+        void $port[float]$(float value){
+            std::cout << value << std::endl ;
+        }
+"""

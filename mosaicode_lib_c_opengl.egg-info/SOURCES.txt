@@ -31,6 +31,7 @@ mosaicode_lib_c_opengl/extensions/blocks/3D Shapes/torus.py
 mosaicode_lib_c_opengl/extensions/blocks/IO/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/IO/keyboard.py
 mosaicode_lib_c_opengl/extensions/blocks/IO/mouseclick.py
+mosaicode_lib_c_opengl/extensions/blocks/IO/print.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/addfloat.py
 mosaicode_lib_c_opengl/extensions/blocks/Math/decrement.py

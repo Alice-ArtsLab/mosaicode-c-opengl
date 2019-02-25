@@ -34,6 +34,7 @@ class CFile(CodeTemplate):
 #include <iostream> // for cout
 #include <math.h>
 #define ESCAPE 27 //Valor em ASCII do Esc
+using namespace std;
 int window;
 $code[global]$
 typedef struct mosaicgraph_window{
