@@ -16,7 +16,7 @@ class ScaleLoop(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Scale Loop"
-        self.color = "50:250:250:100"
+        self.color = "148:204:249:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

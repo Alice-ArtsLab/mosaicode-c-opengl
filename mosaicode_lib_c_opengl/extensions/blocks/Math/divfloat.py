@@ -16,7 +16,7 @@ class DivFloat(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Div Float"
-        self.color = "50:50:50:150"
+        self.color = "102:255:79:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

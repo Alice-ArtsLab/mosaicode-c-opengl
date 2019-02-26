@@ -16,7 +16,7 @@ class ScaleLoop(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Keyboard"
-        self.color = "150:50:50:100"
+        self.color = "225:225:0:100"
         self.group = "I/O"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Value",

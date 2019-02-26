@@ -16,7 +16,7 @@ class Dodecahedron(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Dodecahedron"
-        self.color = "150:150:250:150"
+        self.color = "255:197:141:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

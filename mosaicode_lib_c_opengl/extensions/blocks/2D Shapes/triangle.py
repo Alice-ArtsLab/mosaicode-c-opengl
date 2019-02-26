@@ -16,7 +16,7 @@ class Triangle(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Triangle"
-        self.color = "150:250:250:150"
+        self.color = "157:119:109:150"
         self.group = "2D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

@@ -16,7 +16,7 @@ class Rotate(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Rotate"
-        self.color = "50:50:50:150"
+        self.color = "135:206:250:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

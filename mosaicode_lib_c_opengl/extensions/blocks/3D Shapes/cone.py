@@ -16,7 +16,7 @@ class Cone(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Cone"
-        self.color = "50:50:50:150"
+        self.color = "255:236:216:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

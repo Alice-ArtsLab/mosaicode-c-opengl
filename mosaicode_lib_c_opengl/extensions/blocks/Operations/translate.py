@@ -16,7 +16,7 @@ class Translate(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Translate"
-        self.color = "50:250:50:100"
+        self.color = "108:180:223:100"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

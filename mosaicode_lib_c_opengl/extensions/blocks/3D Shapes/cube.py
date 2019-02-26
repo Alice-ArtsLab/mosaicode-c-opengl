@@ -16,7 +16,7 @@ class Cube(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Cube"
-        self.color = "50:250:150:150"
+        self.color = "255:216:179:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

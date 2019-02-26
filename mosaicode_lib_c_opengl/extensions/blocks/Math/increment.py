@@ -16,7 +16,7 @@ class Increment(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Increment"
-        self.color = "50:50:50:150"
+        self.color = "0:225:0:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

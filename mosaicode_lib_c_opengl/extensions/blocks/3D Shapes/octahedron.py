@@ -16,7 +16,7 @@ class Octahedron(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Octahedron"
-        self.color = "150:150:250:150"
+        self.color = "255:159:64:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

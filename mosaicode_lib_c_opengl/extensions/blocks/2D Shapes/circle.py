@@ -16,7 +16,7 @@ class Circle(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Circle"
-        self.color = "250:150:150:150"
+        self.color = "256:0:0:150"
         self.group = "2D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

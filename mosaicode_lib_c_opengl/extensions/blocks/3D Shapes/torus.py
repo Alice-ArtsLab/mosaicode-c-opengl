@@ -16,7 +16,7 @@ class Torus(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Torus"
-        self.color = "250:250:50:150"
+        self.color = "197:135:82:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",
