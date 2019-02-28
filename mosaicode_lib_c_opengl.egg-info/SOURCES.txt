@@ -16,7 +16,8 @@ mosaicode_lib_c_opengl/extensions/blocks/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/circle.py
 mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/elipse.py
-mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/quadrilateral.py
+mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/rectangle.py
+mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/square.py
 mosaicode_lib_c_opengl/extensions/blocks/2D Shapes/triangle.py
 mosaicode_lib_c_opengl/extensions/blocks/3D Shapes/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/3D Shapes/cone.py
