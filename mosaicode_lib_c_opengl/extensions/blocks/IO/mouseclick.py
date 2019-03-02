@@ -16,7 +16,7 @@ class MouseClick(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Mouse Click"
-        self.color = "225:225:150:100"
+        self.color = "200:200:100:100"
         self.group = "I/O"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"X",

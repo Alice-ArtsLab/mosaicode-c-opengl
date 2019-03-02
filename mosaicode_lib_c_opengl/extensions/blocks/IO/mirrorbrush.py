@@ -16,7 +16,7 @@ class MirrorBrush(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Mirror Brush"
-        self.color = "225:150:150:100"
+        self.color = "200:200:50:100"
         self.group = "I/O"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
@@ -39,10 +39,19 @@ class MirrorBrush(BlockModel):
                             "label": "caractere",
                             "type": MOSAICODE_STRING,
                             "value": "c"
+                            },
+                            {"name": "type",
+                            "label": "type",
+                            "type": MOSAICODE_COMBO,
+                            "values": ["vertical",
+                                        "horizontal",
+                                        "diagonal"],
+                            "value": "vertical",
                             }]
 
       
         self.codes["global"] = """
+string type$id$ ("$prop[type]$");
 float * $port[color]$;
 float * $port[colormirror]$;
 float bool$id$ = 0;
@@ -106,12 +115,28 @@ void mandala$id$(){
             glVertex2d(((float)i->x-(float)width$id$/2.0)/(float)width$id$*2.0,-((float)i->y-(float)width$id$/2.0)/(float)width$id$*2.0);
         }
         glEnd();
-        glBegin(GL_LINE_STRIP);
-        glColor3f($port[colormirror]$[0],$port[colormirror]$[1],$port[colormirror]$[2]);
-        for (auto i = (*j).begin(); i!= (*j).end();++i){
-            glVertex2d(-((float)i->x-(float)width$id$/2.0)/(float)width$id$*2.0,-((float)i->y-(float)width$id$/2.0)/(float)width$id$*2.0);
+        if(type$id$.compare("vertical")==0){    
+            glBegin(GL_LINE_STRIP);
+            glColor3f($port[colormirror]$[0],$port[colormirror]$[1],$port[colormirror]$[2]);
+            for (auto i = (*j).begin(); i!= (*j).end();++i){
+                glVertex2d(-((float)i->x-(float)width$id$/2.0)/(float)width$id$*2.0,-((float)i->y-(float)width$id$/2.0)/(float)width$id$*2.0);
+            }
+            glEnd();
+        }else if(type$id$.compare("horizontal")==0){    
+            glBegin(GL_LINE_STRIP);
+            glColor3f($port[colormirror]$[0],$port[colormirror]$[1],$port[colormirror]$[2]);
+            for (auto i = (*j).begin(); i!= (*j).end();++i){
+                glVertex2d(((float)i->x-(float)width$id$/2.0)/(float)width$id$*2.0,((float)i->y-(float)width$id$/2.0)/(float)width$id$*2.0);
+            }
+            glEnd();
+        }else if(type$id$.compare("diagonal")==0){    
+            glBegin(GL_LINE_STRIP);
+            glColor3f($port[colormirror]$[0],$port[colormirror]$[1],$port[colormirror]$[2]);
+            for (auto i = (*j).begin(); i!= (*j).end();++i){
+                glVertex2d(-((float)i->x-(float)width$id$/2.0)/(float)width$id$*2.0,((float)i->y-(float)width$id$/2.0)/(float)width$id$*2.0);
+            }
+            glEnd();
         }
-        glEnd();
         
     }
     glBegin(GL_LINE_STRIP);

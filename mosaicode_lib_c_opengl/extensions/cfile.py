@@ -33,6 +33,7 @@ class CFile(CodeTemplate):
 #include <vector>
 #include <iostream> // for cout
 #include <math.h>
+#include <string>
 #define ESCAPE 27 //Valor em ASCII do Esc
 using namespace std;
 int window;
