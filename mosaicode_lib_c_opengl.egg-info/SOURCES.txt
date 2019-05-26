@@ -31,6 +31,7 @@ mosaicode_lib_c_opengl/extensions/blocks/3D Shapes/tetrahedron.py
 mosaicode_lib_c_opengl/extensions/blocks/3D Shapes/torus.py
 mosaicode_lib_c_opengl/extensions/blocks/Artistic/__init__.py
 mosaicode_lib_c_opengl/extensions/blocks/Artistic/cantorset.py
+mosaicode_lib_c_opengl/extensions/blocks/Artistic/kochcurve.py
 mosaicode_lib_c_opengl/extensions/blocks/Artistic/mandala.py
 mosaicode_lib_c_opengl/extensions/blocks/Artistic/peanocurve.py
 mosaicode_lib_c_opengl/extensions/blocks/Artistic/sierpinskicarpet.py
