@@ -31,10 +31,15 @@ class Brush(BlockModel):
                 "conn_type":"Output",
                 "name":"flow"},
                     ]
-        self.properties = [{"name": "caractere",
-                            "label": "caractere",
+        self.properties = [{"name": "clear",
+                            "label": "clear",
                             "type": MOSAICODE_STRING,
-                            "value": "c"
+                            "value": "x"
+                            },
+                            {"name": "last",
+                            "label": "last",
+                            "type": MOSAICODE_STRING,
+                            "value": "z"
                             }]
 
       
@@ -114,8 +119,10 @@ void render$id$(){
 """
 
         self.codes["keyboard"] = """
-    if (key == (int)'$prop[caractere]$'){
+    if (key == (int)'$prop[clear]$'){
         objetos$id$.clear();
+    }if (key == (int)'$prop[last]$'){
+        objetos$id$.pop_back();
     }
 """
 

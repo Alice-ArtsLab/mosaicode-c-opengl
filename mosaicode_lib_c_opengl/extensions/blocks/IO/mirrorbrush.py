@@ -35,10 +35,15 @@ class MirrorBrush(BlockModel):
                 "conn_type":"Output",
                 "name":"flow"},
                     ]
-        self.properties = [{"name": "caractere",
-                            "label": "caractere",
+        self.properties = [{"name": "clear",
+                            "label": "clear",
                             "type": MOSAICODE_STRING,
-                            "value": "c"
+                            "value": "x"
+                            },
+                            {"name": "last",
+                            "label": "last",
+                            "type": MOSAICODE_STRING,
+                            "value": "z"
                             },
                             {"name": "type",
                             "label": "type",
@@ -70,7 +75,7 @@ void draw$id$();
         if(press$id$){
             draw$id$();
         }
-        mandala$id$();
+        mirror$id$();
         glOrtho(-1.0,1.0,-1.0,1.0,0.0,0.0);
 """
 
@@ -107,7 +112,7 @@ void draw$id$(){
     pincel$id$.push_back(pixel);
 }
 
-void mandala$id$(){
+void mirror$id$(){
     for(auto j = objetos$id$.begin(); j!= objetos$id$.end();++j){
         glColor3f($port[color]$[0],$port[color]$[1],$port[color]$[2]);
         glBegin(GL_LINE_STRIP);
@@ -151,8 +156,10 @@ void mandala$id$(){
 """
 
         self.codes["keyboard"] = """
-    if (key == (int)'$prop[caractere]$'){
+    if (key == (int)'$prop[clear]$'){
         objetos$id$.clear();
+    }if (key == (int)'$prop[last]$'){
+        objetos$id$.pop_back();
     }
 """
 
