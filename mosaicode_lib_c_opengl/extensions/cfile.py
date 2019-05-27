@@ -37,6 +37,10 @@ class CFile(CodeTemplate):
 #define ESCAPE 27 //Valor em ASCII do Esc
 using namespace std;
 int window;
+typedef struct point{
+    float x;
+    float y;
+}pnt;
 $code[global]$
 typedef struct mosaicgraph_window{
         float x;

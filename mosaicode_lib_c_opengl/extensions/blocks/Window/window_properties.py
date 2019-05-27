@@ -71,8 +71,10 @@ class WindowProperties(BlockModel):
                             }
 
                            ]
-        self.codes["declaration"] = """
+        self.codes["global"] = """
         float background$id$[3];
+"""
+        self.codes["declaration"] = """
         convert_text_to_color_background("$prop[background]$", background$id$);
         window->x = $prop[x]$;
         window->y = $prop[y]$;
@@ -85,7 +87,7 @@ class WindowProperties(BlockModel):
         strcpy(window->title, "$prop[title]$");
 """
         self.codes["call"] = """
-        glPolygonMode(GL_FRONT_AND_BACK, $prop[polygon]$);
+        glClearColor(background$id$[0],background$id$[1],background$id$[2],1.0);
 """
 
         self.codes["function"] = """
@@ -113,4 +115,8 @@ class WindowProperties(BlockModel):
             output[1] = gi / 255.0;
             output[2] = bi / 255.0;
         }
+"""
+        self.codes["execution"] = """
+        glPolygonMode(GL_FRONT_AND_BACK, $prop[polygon]$);
+
 """

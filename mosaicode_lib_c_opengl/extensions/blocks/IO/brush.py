@@ -46,10 +46,6 @@ class Brush(BlockModel):
         self.codes["global"] = """
 float * $port[color]$;
 float bool$id$ = 0;
-typedef struct point{
-    float x;
-    float y;
-}pnt;
 int xMouse$id$,yMouse$id$,width$id$;
 vector<vector<pnt>> objetos$id$;
 vector<pnt> pincel$id$;

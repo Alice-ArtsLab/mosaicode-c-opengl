@@ -60,10 +60,6 @@ string type$id$ ("$prop[type]$");
 float * $port[color]$;
 float * $port[colormirror]$;
 float bool$id$ = 0;
-typedef struct point{
-    float x;
-    float y;
-}pnt;
 int xMouse$id$,yMouse$id$,width$id$;
 vector<vector<pnt>> objetos$id$;
 vector<pnt> pincel$id$;
