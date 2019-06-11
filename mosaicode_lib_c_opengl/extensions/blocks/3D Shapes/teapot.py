@@ -16,7 +16,7 @@ class Teapot(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Teapot"
-        self.color = "236:139:43:150"
+        self.color = "255:213:137:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

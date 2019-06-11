@@ -4,24 +4,60 @@
  <zoom value="1.0"/>
  <language value="c"/>
  <blocks>
-  <block collapsed="False" id="1" type="mosaicode_lib_c_opengl.extensions.blocks.2D Shapes.quadrilateral">
-   <position x="360.0" y="120.0"/>
-   <property key="x1" value="0.0"/>
-   <property key="y1" value="1.0"/>
-   <property key="x2" value="0.0"/>
-   <property key="y2" value="0.0"/>
-   <property key="x3" value="1.0"/>
-   <property key="y3" value="0.0"/>
-   <property key="x4" value="1.0"/>
-   <property key="y4" value="1.0"/>
-  </block>
-  <block collapsed="False" id="2" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
-   <position x="190.0" y="120.0"/>
+  <block collapsed="False" id="3" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
+   <position x="250.0" y="150.0"/>
    <property key="color" value="#FF0000"/>
+  </block>
+  <block collapsed="False" id="4" type="mosaicode_lib_c_opengl.extensions.blocks.Artistic.kochcurve">
+   <position x="400.0" y="140.0"/>
+   <property key="x1" value="-1.0"/>
+   <property key="y1" value="-1.0"/>
+   <property key="x2" value="0.99"/>
+   <property key="y2" value="0.99"/>
+   <property key="recursivity" value="5.0"/>
+  </block>
+  <block collapsed="False" id="5" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
+   <position x="240.0" y="230.0"/>
+   <property key="color" value="#0012ff"/>
+  </block>
+  <block collapsed="False" id="6" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
+   <position x="240.0" y="300.0"/>
+   <property key="color" value="#00ff04"/>
+  </block>
+  <block collapsed="False" id="7" type="mosaicode_lib_c_opengl.extensions.blocks.Types.color">
+   <position x="240.0" y="380.0"/>
+   <property key="color" value="#ffffff"/>
+  </block>
+  <block collapsed="False" id="8" type="mosaicode_lib_c_opengl.extensions.blocks.Artistic.kochcurve">
+   <position x="400.0" y="220.0"/>
+   <property key="x1" value="0.99"/>
+   <property key="y1" value="0.99"/>
+   <property key="x2" value="-0.99"/>
+   <property key="y2" value="-1.0"/>
+   <property key="recursivity" value="5.0"/>
+  </block>
+  <block collapsed="False" id="9" type="mosaicode_lib_c_opengl.extensions.blocks.Artistic.kochcurve">
+   <position x="400.0" y="290.0"/>
+   <property key="x1" value="-1.0"/>
+   <property key="y1" value="-0.0"/>
+   <property key="x2" value="0.99"/>
+   <property key="y2" value="-0.0"/>
+   <property key="recursivity" value="5.0"/>
+  </block>
+  <block collapsed="False" id="10" type="mosaicode_lib_c_opengl.extensions.blocks.Artistic.kochcurve">
+   <position x="400.0" y="380.0"/>
+   <property key="x1" value="0.99"/>
+   <property key="y1" value="0.0"/>
+   <property key="x2" value="-1.0"/>
+   <property key="y2" value="0.0"/>
+   <property key="recursivity" value="5.0"/>
   </block>
  </blocks>
  <connections>
-  <connection from_block="2" from_out="0" to_block="1" to_in="2"/>
+  <connection from_block="3" from_out="0" to_block="4" to_in="2"/>
+  <connection from_block="5" from_out="0" to_block="8" to_in="2"/>
+  <connection from_block="6" from_out="0" to_block="9" to_in="2"/>
+  <connection from_block="7" from_out="0" to_block="10" to_in="2"/>
  </connections>
  <comments/>
 </mosaicode>

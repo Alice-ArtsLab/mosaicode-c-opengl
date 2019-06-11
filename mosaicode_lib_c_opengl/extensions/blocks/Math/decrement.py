@@ -16,7 +16,7 @@ class Decrement(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Decrement"
-        self.color = "144:255:119:150"
+        self.color = "0:0:216:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

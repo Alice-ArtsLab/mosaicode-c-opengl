@@ -16,7 +16,7 @@ class SierpinskiCarpet(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Sierpinski Carpet"
-        self.color = "150:150:150:100"
+        self.color = "255:255:118:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

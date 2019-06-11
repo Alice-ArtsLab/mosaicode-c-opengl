@@ -16,7 +16,7 @@ class Scale(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Scale"
-        self.color = "159:202:231:150"
+        self.color = "86:0:150:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

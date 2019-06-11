@@ -16,7 +16,7 @@ class Push(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Push"
-        self.color = "179:222:252:150"
+        self.color = "52:0:91:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

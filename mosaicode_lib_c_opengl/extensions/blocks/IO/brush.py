@@ -16,7 +16,7 @@ class Brush(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Brush"
-        self.color = "225:225:0:100"
+        self.color = "0:128:0:150"
         self.group = "I/O"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",

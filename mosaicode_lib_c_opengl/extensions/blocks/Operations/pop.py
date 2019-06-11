@@ -16,7 +16,7 @@ class Pop(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Pop"
-        self.color = "199:230:253:150"
+        self.color = "41:0:71:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",

@@ -16,7 +16,7 @@ class ScaleLoop(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Scale Loop"
-        self.color = "148:204:249:150"
+        self.color = "98:0:169:150"
         self.group = "Operations"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                     "label":"Flow",
@@ -45,7 +45,7 @@ class ScaleLoop(BlockModel):
                             "upper": 1.0,
                             "step": 0.001,
                             "value": 0.01,
-			    "page_inc": 0.1,
+			                 "page_inc": 0.1,
                             "page_size": 0.1,
                             },
                             {"name": "z",
@@ -55,17 +55,17 @@ class ScaleLoop(BlockModel):
                             "upper": 1.0,
                             "step": 0.001,
                             "value": 0.01,
-			    "page_inc": 0.1,
+			                 "page_inc": 0.1,
                             "page_size": 0.1,
                             },
                             {"name": "tamMax",
                             "label": "tamMax",
                             "type": MOSAICODE_FLOAT,
                             "lower": -1.0,
-                            "upper": 1.0,
+                            "upper": 10000.0,
                             "step": 0.001,
                             "value": 2.0,
-			    "page_inc": 0.1,
+			                 "page_inc": 0.1,
                             "page_size": 0.1,
                             },
                             {"name": "tamMin",
@@ -75,7 +75,7 @@ class ScaleLoop(BlockModel):
                             "upper": 1.0,
                             "step": 0.001,
                             "value": 0.1,
-			    "page_inc": 0.1,
+			                 "page_inc": 0.1,
                             "page_size": 0.1,
                             }
                            ]

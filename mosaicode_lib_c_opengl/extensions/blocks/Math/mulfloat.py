@@ -16,7 +16,7 @@ class MulFloat(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Mul Float"
-        self.color = "75:234:55:150"
+        self.color = "20:20:255:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

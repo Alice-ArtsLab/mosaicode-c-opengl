@@ -16,7 +16,7 @@ class Tetrahedron(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Tetrahedron"
-        self.color = "217:137:64:150"
+        self.color = "255:220:157:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

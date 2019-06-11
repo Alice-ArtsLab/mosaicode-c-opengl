@@ -16,7 +16,7 @@ class Square(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Square"
-        self.color = "202:96:72:150"
+        self.color = "255:78:78:150"
         self.group = "2D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

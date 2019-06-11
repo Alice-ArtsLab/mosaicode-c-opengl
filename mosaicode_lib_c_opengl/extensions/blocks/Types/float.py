@@ -16,7 +16,7 @@ class Float(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Float"
-        self.color = "73:13:117:150"
+        self.color = "240:147:240:150"
         self.group = "Types"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Value",

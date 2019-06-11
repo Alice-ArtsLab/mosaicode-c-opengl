@@ -16,7 +16,7 @@ class PrintFloat(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Print Float"
-        self.color = "98:212:77:150"
+        self.color = "40:40:255:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

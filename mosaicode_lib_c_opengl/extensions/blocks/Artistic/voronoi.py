@@ -16,7 +16,7 @@ class Voronoi(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Voronoi Diagram"
-        self.color = "125:125:125:100"
+        self.color = "255:255:157:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

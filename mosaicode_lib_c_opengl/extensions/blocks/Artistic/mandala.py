@@ -16,7 +16,7 @@ class Mandala(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Mandala"
-        self.color = "50:50:50:100"
+        self.color = "255:255:59:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",

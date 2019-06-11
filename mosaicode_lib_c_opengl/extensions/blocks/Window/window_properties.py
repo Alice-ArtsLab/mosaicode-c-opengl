@@ -16,7 +16,7 @@ class WindowProperties(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Window Properties"
-        self.color = "139:121:174:150"
+        self.color = "125:125:125:150"
         self.group = "Window"
 
         self.properties = [{"name": "x",

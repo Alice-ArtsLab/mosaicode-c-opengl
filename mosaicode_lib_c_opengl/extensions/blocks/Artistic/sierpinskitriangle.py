@@ -16,7 +16,7 @@ class SierpinskiTriangle(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Sierpinski Triangle"
-        self.color = "100:100:100:100"
+        self.color = "255:255:137:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

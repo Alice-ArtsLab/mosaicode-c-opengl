@@ -16,7 +16,7 @@ class Rectangle(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Rectangle"
-        self.color = "221:80:53:150"
+        self.color = "255:59:59:150"
         self.group = "2D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

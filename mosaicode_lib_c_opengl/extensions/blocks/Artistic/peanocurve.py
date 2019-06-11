@@ -16,7 +16,7 @@ class PeanoCurve(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Peano Curve"
-        self.color = "75:75:75:100"
+        self.color = "255:255:98:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

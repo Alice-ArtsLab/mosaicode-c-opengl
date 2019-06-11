@@ -16,7 +16,7 @@ class Icosahedron(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Icosahedron"
-        self.color = "255:178:104:150"
+        self.color = "255:193:78:150"
         self.group = "3D Shapes"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

@@ -16,7 +16,7 @@ class SubFloat(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Sub Float"
-        self.color = "112:191:93:150"
+        self.color = "60:60:255:150"
         self.group = "Math"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.float",
                     "label":"Float",

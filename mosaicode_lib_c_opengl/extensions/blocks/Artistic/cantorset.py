@@ -16,7 +16,7 @@ class CantorSet(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Cantor Set"
-        self.color = "200:200:200:100"
+        self.color = "255:255:20:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

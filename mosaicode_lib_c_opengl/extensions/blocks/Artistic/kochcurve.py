@@ -16,7 +16,7 @@ class KochCurve(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Koch Curve"
-        self.color = "125:125:125:100"
+        self.color = "255:255:39:150"
         self.group = "Artistic"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.flow",
                 "label":"Flow",

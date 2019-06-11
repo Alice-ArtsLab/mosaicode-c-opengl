@@ -16,7 +16,7 @@ class Color(BlockModel):
         self.framework = "opengl"
         self.help = "Not to declare"
         self.label = "Color"
-        self.color = "77:00:146:150"
+        self.color = "236:130:238:150"
         self.group = "Types"
         self.ports = [{"type":"mosaicode_lib_c_opengl.extensions.ports.color",
                 "label":"Color",
